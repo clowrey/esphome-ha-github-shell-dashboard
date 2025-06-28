@@ -1,6 +1,9 @@
 # esphome-ha-github-shell-dashboard
 Configuration to perform simple Git pull / push commands from dashboard buttons to github
 
+<img width="388" alt="image" src="https://github.com/user-attachments/assets/b20e1fb6-0999-4af6-8261-93b94861c52f" />
+
+
 # Home Assistant Git Control Dashboard
 
 ## Step 1: Create Scripts in configuration.yaml

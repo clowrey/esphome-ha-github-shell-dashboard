@@ -5,7 +5,6 @@ Credit goes to [Jesserockz](https://github.com/jesserockz) in the [ESPhome Disco
 
 <img width="388" alt="image" src="https://github.com/user-attachments/assets/b20e1fb6-0999-4af6-8261-93b94861c52f" />
 
-
 # Home Assistant Git Control Dashboard
 
 ## Step 1: Create Scripts in configuration.yaml
@@ -58,13 +57,13 @@ Modify your shell commands to capture output:
 ```yaml
 shell_command:
   esphome_pull_with_output: >
-    cd /config/esphome && GIT_SSH_COMMAND='ssh -i /.ssh/github_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=no' git pull > /config/esphome_git_pull_output.txt 2> /config/esphome_git_pull_error.txt
+    cd /config/esphome && GIT_SSH_COMMAND='ssh -i /.ssh/github_key_esphome -o IdentitiesOnly=yes -o StrictHostKeyChecking=no' git pull > /config/esphome_git_pull_output.txt 2> /config/esphome_git_pull_error.txt
   
   esphome_commit_with_output: >
     cd /config/esphome && git add . && git commit -a -m "esphome dashboard edit" > /config/esphome_git_commit_output.txt 2> /config/esphome_git_commit_error.txt
   
   esphome_push_with_output: >
-    cd /config/esphome && GIT_SSH_COMMAND='ssh -i /.ssh/github_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=no' git push > /config/esphome_git_push_output.txt 2> /config/esphome_git_push_error.txt
+    cd /config/esphome && GIT_SSH_COMMAND='ssh -i /.ssh/github_key_esphome -o IdentitiesOnly=yes -o StrictHostKeyChecking=no' git push > /config/esphome_git_push_output.txt 2> /config/esphome_git_push_error.txt
 ```
 
 Note: The commit command now includes `git add .` to ensure all changes are staged before committing.
@@ -254,6 +253,7 @@ cards:
       **STDOUT:** {{ states('sensor.esphome_git_push_output') }}
       **STDERR:** {{ states('sensor.esphome_git_push_error') }}
 ```
+
 ## Notes:
 
 1. **Restart Required**: After adding the configuration changes, restart Home Assistant.
@@ -263,4 +263,3 @@ cards:
 3. **Output Limitations**: Command line sensors have a 255 character limit. For longer outputs, consider using a custom script that truncates output or stores it in chunks.
 
 4. **Security**: Be careful with git operations that might expose sensitive information in the output.
-        

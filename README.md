@@ -1,6 +1,8 @@
 # esphome-ha-github-shell-dashboard
 Configuration to perform simple Git pull / push commands from dashboard buttons to github
 
+Credit goes to [Jesserockz](https://github.com/jesserockz) in the [ESPhome Discord](https://discordapp.com/channels/429907082951524364/1387195120071213126) for making the shell script work :) 
+
 <img width="388" alt="image" src="https://github.com/user-attachments/assets/b20e1fb6-0999-4af6-8261-93b94861c52f" />
 
 
